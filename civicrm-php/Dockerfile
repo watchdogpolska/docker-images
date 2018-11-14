@@ -14,4 +14,4 @@ RUN apt-get update \
 RUN a2enmod auth_openidc
 COPY ./mod_auth_openidc.conf /etc/apache2/conf-enabled/mod_auth_openidc.conf
 COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]

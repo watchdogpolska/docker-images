@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 if [ -z "$OIDCClientID" -o -z "$OIDCClientSecret" -o -z "$OIDCCryptoPassphrase" -o -z "$OIDCClaimHD" ]; then
     echo "Missing environment variables. Required OIDCClientID, OIDCClientSecret, OIDCCryptoPassphrase and OIDCClaimHD.";
     exit;
