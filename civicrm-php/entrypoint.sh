@@ -1,9 +1,12 @@
 #!/bin/sh
 set -e
-if [ -z "$OIDCClientID" -o -z "$OIDCClientSecret" -o -z "$OIDCCryptoPassphrase" -o -z "$OIDCClaimHD" ]; then
-    echo "Missing environment variables. Required OIDCClientID, OIDCClientSecret, OIDCCryptoPassphrase and OIDCClaimHD.";
-    exit;
-fi;
+
+required_env="Required OIDCClientID, OIDCClientSecret, OIDCCryptoPassphrase and OIDCClaimHD.";
+
+[ -z "$OIDCClientID" ] && echo "Missing environment variable $OIDCClientID. $required_env" &&  exit 1 ;
+[ -z "$OIDCClientSecret" ] && echo "Missing environment variable $OIDCClientSecret. $required_env" &&  exit 1 ;
+[ -z "$OIDCCryptoPassphrase" ] && echo "Missing environment variable $OIDCCryptoPassphrase. $required_env" &&  exit 1 ;
+[ -z "$OIDCClaimHD" ] && echo "Missing environment variable $OIDCClaimHD. $required_env" &&  exit 1 ;
 
 sed -e "s/{{OIDCClientID}}/$OIDCClientID/g" \
     -e "s/{{OIDCClientSecret}}/$OIDCClientSecret/g" \
