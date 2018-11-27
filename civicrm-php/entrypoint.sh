@@ -1,5 +1,5 @@
 #!/bin/sh
-set -euxo pipefail;
+set -eux;
 
 # required_env="Required OIDCClientID, OIDCClientSecret, OIDCCryptoPassphrase and OIDCClaimHD.";
 
