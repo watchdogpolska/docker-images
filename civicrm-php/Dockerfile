@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:5.6-apache
 RUN a2enmod rewrite
 # install the PHP extensions we need
 RUN apt-get update && apt-get install -y libpng16-16 libpng-dev && rm -rf /var/lib/apt/lists/*
