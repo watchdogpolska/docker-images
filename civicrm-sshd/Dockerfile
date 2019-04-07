@@ -2,7 +2,7 @@ FROM quay.io/watchdogpolska/civicrm-php:latest
 MAINTAINER Adam Dobrawy "http://github.com/ad-m/"
 # Setup SSHD server
 RUN apt-get update \
-&& apt-get install -y openssh-server curl wget git less \
+&& apt-get install -y --no-install-recommends openssh-server curl rsync wget git less \
 && rm -rf /var/lib/apt/lists/* \
 RUN mkdir /run/sshd && \
 mkdir /var/run/sshd && \
@@ -18,11 +18,14 @@ ENTRYPOINT ["/entrypoint.sh"]
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 && php wp-cli.phar --info \
 && chmod +x wp-cli.phar \
-&& mv wp-cli.phar /usr/local/bin/wp \
-&& wp --allow-root
+&& mv wp-cli.phar /usr/local/bin/wp
 RUN mkdir /var/www/.ssh \
 && chown www-data:www-data /var/www/.ssh
 
+# Add mariadb-client
+RUN apt-get update \
+&& apt-get install -y --no-install-recommends mariadb-client \
+&& rm -rf /var/lib/apt/lists/* \
 # Add persistent sshd keys
 ENV SSH_KEYS_DIR="/etc/ssh-keys"
 VOLUME /etc/ssh-keys
