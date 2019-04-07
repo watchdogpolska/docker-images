@@ -12,6 +12,8 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 && chmod +x wp-cli.phar \
 && mv wp-cli.phar /usr/local/bin/wp \
 && wp --allow-root
+RUN mkdir /var/www/.ssh && chown www-data:www-data /var/www/.ssh
+USER www-data
 EXPOSE 22
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/sbin/sshd", "-D"]
