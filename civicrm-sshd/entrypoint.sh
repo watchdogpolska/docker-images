@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-[ ! -f "$SSH_KEYS_DIR" ] && ssh-keygen -f "$SSH_KEYS_DIR/ssh_host_rsa_key" -N '' -t rsa
-[ ! -f "$SSH_KEYS_DIR" ] && ssh-keygen -f "$SSH_KEYS_DIR/ssh_host_ecdsa_key" -N '' -t ecdsa
-[ ! -f "$SSH_KEYS_DIR" ] && ssh-keygen -f "$SSH_KEYS_DIR/ssh_host_ed25519_key" -N '' -t ed25519
+[ ! -f "$SSH_KEYS_DIR/ssh_host_rsa_key" ] && ssh-keygen -f "$SSH_KEYS_DIR/ssh_host_rsa_key" -N '' -t rsa
+[ ! -f "$SSH_KEYS_DIR/ssh_host_ecdsa_key" ] && ssh-keygen -f "$SSH_KEYS_DIR/ssh_host_ecdsa_key" -N '' -t ecdsa
+[ ! -f "$SSH_KEYS_DIR/ssh_host_ed25519_key" ] && ssh-keygen -f "$SSH_KEYS_DIR/ssh_host_ed25519_key" -N '' -t ed25519
 
 [ -z "$GITHUB_USERS" ] && echo "Missing environment variable GITHUB_USERS." &&  exit 1 ;
 echo "$GITHUB_USERS" | sed "s/,/\n/g" | while read github_user; do
