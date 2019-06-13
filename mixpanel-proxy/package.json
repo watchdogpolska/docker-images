@@ -14,7 +14,7 @@
     "http-proxy": "^1.17.0"
   },
   "devDependencies": {
-    "@hyperone/eslint-config": "1.0.3",
+    "@hyperone/eslint-config": "2.0.0",
     "eslint": "5.16.0"
   }
 }
