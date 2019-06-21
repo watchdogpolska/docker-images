@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  monitoring:
+    image: quay.io/watchdogpolska/zabbix-agent:latest
+    ports:
+      - "10050:10050"
+    privileged: true
+    environment:
+      ZBX_HOSTNAME: "vm-agent-registry"
+      ZBX_SERVER_HOST: "zabbix.127.0.0.1.xip.io"
+      ZBX_SERVER_PORT: "10050"
+    restart: always
+
