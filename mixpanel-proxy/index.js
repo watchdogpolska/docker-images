@@ -38,6 +38,17 @@ const server = http.createServer(function(req, res) {
     proxy.web(req, res, {
         target: API_URL,
     });
+    proxy.on('error', (e) => {
+        const err = new Error('An exception coming from a proxy');
+        err.e = e;
+        throw err;
+    });
+});
+
+server.on('error', (e) => {
+    const err = new Error('An exception coming from a HTTP server');
+    err.e = e;
+    throw err;
 });
 
 server.listen(PORT, () => {
