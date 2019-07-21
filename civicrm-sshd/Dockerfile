@@ -26,6 +26,7 @@ RUN mkdir /var/www/.ssh \
 RUN apt-get update \
 && apt-get install -y --no-install-recommends mariadb-client \
 && rm -rf /var/lib/apt/lists/* \
+
 # Add persistent sshd keys
 ENV SSH_KEYS_DIR="/etc/ssh-keys"
 VOLUME /etc/ssh-keys
