@@ -36,6 +36,10 @@ const truncateOriginIp = (req) => {
     }
 };
 
+const disableKeepAlive = (req) => {
+    req.headers['connection'] = 'close'
+};
+
 const proxy = httpProxy.createProxyServer({
     changeOrigin: true
 });
@@ -44,9 +48,12 @@ const server = http.createServer(function(req, res) {
     req.headers.host = parsed_url.hostname;
     enrichOriginIp(req);
     truncateOriginIp(req);
+    disableKeepAlive(req);
+
     proxy.web(req, res, {
         target: API_URL,
     });
+
     proxy.on('error', (e) => {
         const err = new Error('An exception coming from a proxy');
         err.e = e;
