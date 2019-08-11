@@ -11,10 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "@sentry/node": "^5.4.0",
-    "http-proxy": "^1.17.0"
+    "koa": "^2.7.0",
+    "koa-logger": "^3.2.1",
+    "superagent": "^5.1.0",
+    "superagent-logger": "^1.1.0"
   },
   "devDependencies": {
     "@hyperone/eslint-config": "2.0.0",
-    "eslint": "6.1.0"
+    "eslint": "6.1.0",
+    "nodemon": "^1.19.1"
   }
 }
