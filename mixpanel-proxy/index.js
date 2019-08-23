@@ -6,7 +6,7 @@ const Sentry = require('@sentry/node');
 
 const API_URL = process.env.MIXPANEL_API_URL || 'https://api.mixpanel.com';
 const PORT = process.env.PORT || 3000;
-const TRUNCATE_URL = process.env.TRUNCATE_URL || '^/mpanel';
+const TRUNCATE_URL = process.env.TRUNCATE_URL || '^/mpanel/';
 const parsed_url = url.parse(API_URL);
 
 const agent = superagent.agent()
