@@ -1,4 +1,4 @@
-FROM quay.io/watchdogpolska/civicrm-php:latest
+FROM docker-registry.siecobywatelska.pl/civicrm-php:latest
 MAINTAINER Adam Dobrawy "http://github.com/ad-m/"
 # Setup SSHD server
 RUN apt-get update \

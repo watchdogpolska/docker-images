@@ -7,7 +7,7 @@ Docker image containing Zabbix-Agent enriched with additional functionalities.
 ## Usage
 
 ```.bash
-docker run -p 3000:3000 quay.io/watchdogpolska/zabbix-agent
+docker run -p 3000:3000 docker-registry.siecobywatelska.pl/zabbix-agent
 ```
 
 For details, see [upstream](https://hub.docker.com/r/zabbix/zabbix-agent) ```zabbix-agent/zabbix``` image.

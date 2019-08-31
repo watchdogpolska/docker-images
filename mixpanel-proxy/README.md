@@ -7,7 +7,7 @@ Docker image containing proxy to [Mixpanel](https://mixpanel.com/) API.
 ## Usage
 
 ```.bash
-docker run -p 3000:3000 quay.io/watchdogpolska/mixpanel-proxy
+docker run -p 3000:3000 docker-registry.siecobywatelska.pl/mixpanel-proxy
 ```
 
 # Features

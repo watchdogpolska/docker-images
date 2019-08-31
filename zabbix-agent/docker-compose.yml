@@ -2,7 +2,7 @@ version: '3'
 
 services:
   monitoring:
-    image: quay.io/watchdogpolska/zabbix-agent:latest
+    image: docker-registry.siecobywatelska.pl/zabbix-agent:latest
     ports:
       - "10050:10050"
     privileged: true
