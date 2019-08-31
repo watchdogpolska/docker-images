@@ -3,10 +3,8 @@ MAINTAINER Adam Dobrawy "http://github.com/ad-m/"
 # Setup SSHD server
 RUN apt-get update \
 && apt-get install -y --no-install-recommends openssh-server curl rsync wget git less nano \
-&& rm -rf /var/lib/apt/lists/*
-RUN mkdir /run/sshd && \
-mkdir /var/run/sshd && \
-mkdir /root/.ssh
+&& rm -rf /var/lib/apt/lists/* \
+&& mkdir /var/run/ssh /root/.ssh
 USER root
 EXPOSE 22
 # Add github ssh-keys importer
