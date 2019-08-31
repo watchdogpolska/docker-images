@@ -3,7 +3,7 @@ MAINTAINER Adam Dobrawy "http://github.com/ad-m/"
 # Setup SSHD server
 RUN apt-get update \
 && apt-get install -y --no-install-recommends openssh-server curl rsync wget git less nano \
-&& rm -rf /var/lib/apt/lists/* \
+&& rm -rf /var/lib/apt/lists/*
 RUN mkdir /run/sshd && \
 mkdir /var/run/sshd && \
 mkdir /root/.ssh
@@ -25,7 +25,7 @@ RUN mkdir /var/www/.ssh \
 # Add mariadb-client
 RUN apt-get update \
 && apt-get install -y --no-install-recommends mariadb-client \
-&& rm -rf /var/lib/apt/lists/* \
+&& rm -rf /var/lib/apt/lists/*
 
 # Add persistent sshd keys
 ENV SSH_KEYS_DIR="/etc/ssh-keys"
