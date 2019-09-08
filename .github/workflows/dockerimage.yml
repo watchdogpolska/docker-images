@@ -27,7 +27,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build image - ${{ matrix.image }}
+    - name: Build image
       run: docker build ${{ matrix.image }} --tag docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest
     - name: "Skip push on non-master branch"
       uses: "actions/bin/filter@master"
@@ -39,5 +39,5 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY_URL}
-    - name: Push image - ${{ matrix.image }}
+    - name: Push image
       run: docker push docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest
