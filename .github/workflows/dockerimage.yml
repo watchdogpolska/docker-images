@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     strategy:
+      max-parallel: 2
       matrix:
         image:
           - "mixpanel-proxy"
