@@ -10,13 +10,13 @@ Docker image containing proxy to [Mixpanel](https://mixpanel.com/) API.
 docker run -p 3000:3000 docker-registry.siecobywatelska.pl/mixpanel-proxy
 ```
 
-# Features
+## Features
 
 * set ```ip``` property of Mixpanel payloads according to ```x-forwarded-for``` header
 * truncate URL to remove specified prefix
 * Sentry exception-handler
 
-# Settings
+## Settings
 
 * ```MIXPANEL_API_URL``` - URL of mixpanel proxy server. Default: ```https://api.mixpanel.com```
 * ```PORT``` - Port for listing of proxy server. Default: ```3000```

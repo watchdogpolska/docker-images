@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+tqdm = "*"
+dataset = {editable = true,git = "https://github.com/pudo/dataset.git"}
+azure-mgmt-storage = "*"
+azure-storage = "*"
+azure-mgmt-resource = "*"
+psycopg2-binary = "*"
+
+[requires]
+python_version = "3.5"
