@@ -12,11 +12,9 @@ docker run -e AZURE_APP_PASSWORD="xxx" -e DATABASE_URL="postgres://xxx" app
 
 ## Features
 
-* set ```ip``` property of Mixpanel payloads according to ```x-forwarded-for``` header
-* truncate URL to remove specified prefix
-* Sentry exception-handler
+* Support multiple databases eg. PostgreSQL, SQLite
 
 ## Settings
 
 * ```AZURE_APP_PASSWORD``` - Password for Azure Service Principal
-* ```DATABASE_URL``` - URL of database server eg. sqlite, mysql, postgresql
+* ```DATABASE_URL``` - URL of database server eg. PostgreSQL, SQLite
