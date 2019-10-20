@@ -14,6 +14,7 @@ services:
       context: .
     environment:
       BACKUP_SRC: "postgresql"
+      BACKUP_POSTGRESQL_HOST: db
       BACKUP_POSTGRESQL_HOST: psql
       BACKUP_POSTGRESQL_DATABASE: db
       BACKUP_POSTGRESQL_USER: root
