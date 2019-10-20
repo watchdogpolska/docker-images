@@ -10,6 +10,7 @@ services:
       POSTGRES_DB: db
   
   archiver-psql:
+    image: quay.io/watchdogpolska/remote-archiver
     build:
       context: .
     environment:
