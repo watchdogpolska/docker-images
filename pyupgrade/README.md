@@ -4,6 +4,14 @@
 
 Docker image containing [pyupgrade](https://github.com/asottile/pyupgrade) - Python application.
 
+## Features
+
+* ignored following directories:
+
+  * ```./node_modules/*```
+  * ```./.tox/*```
+  * ```./bower_components/*```
+
 ## Usage
 
 ```.bash
