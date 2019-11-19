@@ -1,0 +1,65 @@
+<p>{{ [
+    "Hej,",
+    "Ahoj,",
+    "Szanowni Panowie i Panie,",
+    "Szanowni Państwo,",
+    "Drodzy Członkowie i Członkinie,",
+    "Czcigodni",
+] | random }}
+<br>
+{{ [
+    "W najbliższym tygodniu planowane są następujące działania:",
+    "Nadchodzący tydzień zapowiada się ciekawie:",
+    "Szanse zaangażowania w prace Stowarzyszenia:",
+    "Twoje szanse na pomoc Stowarzyszeniu:",
+    "Do której misji Stowarzyszenia chcesz dziś dołączyć? Do wyboru:",
+    "Skuteczne Stowarzyszenie potrzebuje zaangażowanych członków. Wybierz misje:"
+] | random }}</p>
+<ul>
+{% for event in events %}
+<li>{{event.start}}
+{% if event.days != 0 %}(przez {{event.days}} dni do {{event.end}}){% endif %}
+- {{event.summary}}</li>
+{% endfor %}
+</ul>
+<p>{{ [
+    "Odpisz na niniejszą wiadomość w czym chcesz pomóc.",
+    "Jeżeli chcesz, odpowiedź w czym możesz pomóc.",
+    "Odpowiedź na tą wiadomość i wybierz misje na ten tydzień.",
+    "Wybierz zadanie na ten tydzień i odpisz na tą wiadomość.",
+    "Daj innym przykład, wybierz swoją misje na ten tydzień."
+    "Stowarzyszenie budują zaangażowani członkowie, wybierz misję i odpisz na tą wiadomość!"
+    "Stowarzyszenie to my, wybierz swoją misję!"
+] | random }}</p>
+<p>{{ [
+"Zapraszam wszystkich do współpracy, szczególnie w obszarze IT:",
+"Każdy członek i członkini mogą zaangażować się w Stowarzyszeniu w tematach:",
+"Poszukujemy ochotników, którzy chcą współpracować:",
+"Ważne sprawy dla Stowarzyszenia to:",
+"Stowarzyszenie ma niedobór kadry IT. Potrzebujemy Twojej pomocy w:",
+"Jeżeli masz chwilę, przejrzyj poniższe tematy, może spotkasz kogoś. Potrzebujemy programistów Python do długoterminowej współpracy przy:",
+"Jeżeli masz chwilę, przejrzyj poniższe linki, bo może wpadnie Ci ktoś do głowy. Potrzebujemy osób do długoterminowej współpracy przy:",
+"Czy znasz kogoś kto mógłby pomóc Stowarzyszeniu w IT? Potrzebujemy ludzi do:",
+] | random }}</p>
+<ul>
+<li>migracji Panelu, zgodnie z {{ [
+    "- moim zdaniem - nierozważną",
+    "- moim zdaniem - nieprzemyślaną",
+    "budzącą moje zdziwnienie",
+    "świętą",
+    "najważniejszą",
+] | random }} <a href="https://listy.siecobywatelska.pl/private/sllgo_lista/2019-June/008527.html">wolą Walnego Zebrania Członków</a></li>
+<li>rozwoju Fedrowania, zgodnie z potrzebami Stowarzyszeniami opisanymi na <a href="https://github.com/watchdogpolska/feder/">GitHub</a></li>
+<li>rozwoju Poradni, zgodnie z potrzebami Stowarzyszeniami opisanymi na <a href="https://github.com/watchdogpolska/poradnia/">GitHub</a></li>
+<li>rozwoju small-eod, zgodnie z dokumentacją dostępną na <a href="https://github.com/watchdogpolska/small_eod/tree/v2/docs">GitHub</a></li>
+</ul>
+</p>
+<p>{{ [
+    "Pozdrawiam",
+    "Żegnam",
+    "Do usłyszenia za tydzień",
+    "Pa",
+    "Miłego dnia",
+    "Miłego tygodnia"
+] | random }}<br>
+Adam Dobrawy (tak jakby)</p>
