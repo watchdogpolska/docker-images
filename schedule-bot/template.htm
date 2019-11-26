@@ -8,8 +8,8 @@
 ] | random }}
 <br>
 {{ [
-    "W najbliższym tygodniu planowane są następujące działania:",
-    "Nadchodzący tydzień zapowiada się ciekawie:",
+    "W najbliższym tygodniu planowane są następujące działania Stowarzyszenia:",
+    "Nadchodzący tydzień zapowiada się ciekawie dla Stowarzyszenia:",
     "Szanse zaangażowania w prace Stowarzyszenia:",
     "Twoje szanse na pomoc Stowarzyszeniu:",
     "Do której misji Stowarzyszenia chcesz dziś dołączyć? Do wyboru:",
@@ -32,10 +32,24 @@
     "Stowarzyszenie budują zaangażowani członkowie, wybierz misję i odpisz na tą wiadomość!",
     "Stowarzyszenie to my, wybierz swoją misję!"
 ] | random }}</p>
+{% if etr_events %}
+    <p>Wojewódzki Sąd Administracyjny w Warszawie szykuje następujące rozprawy na temat prawa do informacji:</p>
+    <ul>
+    {% for event in etr_events %}
+    <li>{{event.start}} - {{event.summary}}</li>
+    {% endfor %}
+    </ul>
+    <p>{{ [
+        "Przyjdź na rozprawę i opisz swoje wrażenia na siecobywatelska.pl.",
+        "Wstęp na rozprawy jest wolny. Inni członkowie chętnie dowiedzą co wydarzyło się na rozprawie.",
+        "Wstęp na rozprawy jest wolny. Inni członkowie chętnie dowiedzą jaka jest przyszłość prawa do informacji.",
+        "Oko społeczeństwa czyni męża stanu cnotliwym. Pilnuj prawa do informacji.",
+    ] | random }}</p>
+{% endif %}
 <p>{{ [
 "Zapraszam wszystkich do współpracy, szczególnie w obszarze IT:",
 "Każdy członek i członkini mogą zaangażować się w Stowarzyszeniu w tematach:",
-"Poszukujemy ochotników, którzy chcą współpracować:",
+"Poszukuje ochotników, którzy chcą współpracować:",
 "Ważne sprawy dla Stowarzyszenia to:",
 "Stowarzyszenie ma niedobór kadry IT. Potrzebujemy Twojej pomocy w:",
 "Jeżeli masz chwilę, przejrzyj poniższe tematy, może spotkasz kogoś. Potrzebujemy programistów Python do długoterminowej współpracy przy:",
