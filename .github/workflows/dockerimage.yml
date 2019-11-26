@@ -35,7 +35,7 @@ jobs:
       run: |
         docker build ${{ matrix.image }} \
           --tag docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest \
-          --cache-from docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest
+          --cache-from docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest \
           --cache-from quai.io/watchdogpolska/${{ matrix.image }}:latest
     - name: Docker login
       env:
