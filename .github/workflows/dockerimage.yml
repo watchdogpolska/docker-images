@@ -27,6 +27,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Show IP
+      run: curl httpbin.org/ip
     - name: Pull image from HyperOne
       run: docker pull docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest || echo 'Missing image'
     - name: Pull image from Quay.io
