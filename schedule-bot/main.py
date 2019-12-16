@@ -14,11 +14,12 @@ from urllib.parse import urlparse
 ETR_WARSZAWA = "https://raw.githubusercontent.com/ad-m/etr-warszawa-ical/master/648.ics"
 
 SUBJECT_LIST = [
-    "Plany, plany, plany (na przyszły tydzień)" "Ciekawy tydzień Stowarzyszenia",
+    "Plany, plany, plany (na przyszły tydzień)",
+    "Ciekawy tydzień Stowarzyszenia",
     "Tygodniowy plan pracy Stowarzyszenia",
     "Tydzień Stowarzyszenia",
-    "Okazje od Stowarzyszenia w tym tygodniu"
-    "Okazje dla członków w tym tygodniu"
+    "Okazje od Stowarzyszenia w tym tygodniu",
+    "Okazje dla członków w tym tygodniu",
     "Okazje dla członkiń w tym tygodniu",
 ]
 
