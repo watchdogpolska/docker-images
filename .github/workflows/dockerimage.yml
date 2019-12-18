@@ -29,6 +29,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build image
       run: docker build ${{ matrix.image }} --tag docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest
+    - run: echo '{{github.ref}}'
     - name: "Docker login"
       env:
         DOCKER_REGISTRY_URL: docker-registry.siecobywatelska.pl
