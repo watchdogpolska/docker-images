@@ -26,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: echo '${{github.ref}}'
     - uses: actions/checkout@v1
     - name: Build image
       run: docker build ${{ matrix.image }} --tag docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest
@@ -36,7 +35,7 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY_URL}
-      if: "github.ref == 'master'"
+      if: "github.ref == 'refs/heads/master'"
     - name: Push image
       run: docker push docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest
-      if: "github.ref == 'master'"
+      if: "github.ref == 'refs/heads/master'"
