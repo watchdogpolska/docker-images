@@ -59,6 +59,21 @@ def parse_ical(content, max_days=7):
         )
     return sorted(events, key=lambda x: x["start"])
 
+def send_mail(subject, html):
+    if "SMTP_URL" not in os.environ:
+        print("Skipping sending email", file=sys.stderr)
+        print(html)
+        return
+    config = urlparse(os.environ["SMTP_URL"])
+    email = EmailMessage()
+    email["Subject"] = subject
+    email["From"] = os.environ["SMTP_FROM"]
+    email["To"] = os.environ["SMTP_TO"]
+    email.set_content(html, subtype="html")
+
+    with SMTP(config.hostname, config.port or 587) as s:
+        s.login(config.username, config.password)
+        s.send_message(email)
 
 def main():
     etr_events = parse_ical(requests.get(ETR_WARSZAWA).content)
@@ -69,21 +84,8 @@ def main():
     template = Template(open("template.htm", "r").read())
     html = template.render(events=wd_events, etr_events=etr_events)
     pretty_html = HTMLBeautifier.beautify(html, 4)
-
-    if "SMTP_URL" not in os.environ:
-        print("Skipping sending email", file=sys.stderr)
-        print(pretty_html)
-        return
-    config = urlparse(os.environ["SMTP_URL"])
-    email = EmailMessage()
-    email["Subject"] = random.choice(SUBJECT_LIST)
-    email["From"] = os.environ["SMTP_FROM"]
-    email["To"] = os.environ["SMTP_TO"]
-    email.set_content(pretty_html, subtype="html")
-
-    with SMTP(config.hostname, config.port or 587) as s:
-        s.login(config.username, config.password)
-        s.send_message(email)
+    subject = random.choice(SUBJECT_LIST);
+    return send_mail(subject, html)
 
 
 if __name__ == "__main__":
