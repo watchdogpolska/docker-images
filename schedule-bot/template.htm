@@ -7,31 +7,33 @@
     "Czcigodni",
 ] | random }}
 <br>
-{{ [
-    "W najbliższym tygodniu planowane są następujące działania Stowarzyszenia:",
-    "Nadchodzący tydzień zapowiada się ciekawie dla Stowarzyszenia:",
-    "Szanse zaangażowania w prace Stowarzyszenia:",
-    "Twoje szanse na pomoc Stowarzyszeniu:",
-    "Do której misji Stowarzyszenia chcesz dziś dołączyć? Do wyboru:",
-    "Skuteczne Stowarzyszenie potrzebuje zaangażowanych członków. Wybierz misje:"
-] | random }}</p>
-<ul>
-{% for event in events %}
-<li>{{event.start}}
-{% if event.days != 0 %}(przez {{event.days}} dni do {{event.end}}){% endif %}
-- {{event.summary}}</li>
-{% endfor %}
-</ul>
-<p>{{ [
-    "Odpisz na niniejszą wiadomość w czym chcesz pomóc.",
-    "Jeżeli chcesz, odpowiedź w czym możesz pomóc.",
-    "Odpowiedź na tą wiadomość i wybierz misje na ten tydzień.",
-    "Wybierz zadanie na ten tydzień i odpisz na tą wiadomość.",
-    "Daj innym przykład, wybierz swoją misje na ten tydzień.",
-    "Nie rozumiesz, którejś pozycji, pytaj!",
-    "Stowarzyszenie budują zaangażowani członkowie, wybierz misję i odpisz na tą wiadomość!",
-    "Stowarzyszenie to my, wybierz swoją misję!"
-] | random }}</p>
+{% if events %}
+    {{ [
+        "W najbliższym tygodniu planowane są następujące działania Stowarzyszenia:",
+        "Nadchodzący tydzień zapowiada się ciekawie dla Stowarzyszenia:",
+        "Szanse zaangażowania w prace Stowarzyszenia:",
+        "Twoje szanse na pomoc Stowarzyszeniu:",
+        "Do której misji Stowarzyszenia chcesz dziś dołączyć? Do wyboru:",
+        "Skuteczne Stowarzyszenie potrzebuje zaangażowanych członków. Wybierz misje:"
+    ] | random }}</p>
+    <ul>
+    {% for event in events %}
+    <li>{{event.start | datetimeformat}}
+    {% if event.days != 0 %}(przez {{event.days}} dni do {{event.end | datetimeformat}}){% endif %}
+    - {{event.summary}} {{event.categories}}</li>
+    {% endfor %}
+    </ul>
+    <p>{{ [
+        "Odpisz na niniejszą wiadomość w czym chcesz pomóc.",
+        "Jeżeli chcesz, odpowiedź w czym możesz pomóc.",
+        "Odpowiedź na tą wiadomość i wybierz misje na ten tydzień.",
+        "Wybierz zadanie na ten tydzień i odpisz na tą wiadomość.",
+        "Daj innym przykład, wybierz swoją misje na ten tydzień.",
+        "Nie rozumiesz, którejś pozycji, pytaj!",
+        "Stowarzyszenie budują zaangażowani członkowie, wybierz misję i odpisz na tą wiadomość!",
+        "Stowarzyszenie to my, wybierz swoją misję!"
+    ] | random }}</p>
+{% endif %}
 {% if etr_events %}
     <p>Wojewódzki Sąd Administracyjny w Warszawie szykuje następujące rozprawy na temat prawa do informacji:</p>
     <ul>
@@ -44,6 +46,29 @@
         "Wstęp na rozprawy jest wolny. Inni członkowie chętnie dowiedzą co wydarzyło się na rozprawie.",
         "Wstęp na rozprawy jest wolny. Inni członkowie chętnie dowiedzą jaka jest przyszłość prawa do informacji.",
         "Oko społeczeństwa czyni męża stanu cnotliwym. Pilnuj prawa do informacji.",
+    ] | random }}</p>
+{% endif %}
+{% if feed_events %}
+    <p>{{ [
+        "Wszystkim dobrze wiadomo, ale na wszelki wypadek przypomnę o tym co się stało:",
+        "Mam nadzieje, że wszyscy czytali, ale na wszelki wypadek przypomnę:",
+        "Dzięki członkom (i wszystkim tworzącym to Stowarzyszenie) stało się w minionym tygodniu:",
+        "W minionym tygodniu działaliśmy w zakresie:",
+        "Zasoby Stowarzyszenia w minionym tygodniu zaangażowało:",
+    ] | random }}</p>
+    <ul>
+    {% for event in feed_events %}
+        <li>
+            <a href="{{event.href}}">{{event.title_detail.value}}</a>
+            - {{event.published_parsed | structformat}}
+        </li>
+    {% endfor %}
+    </ul>
+    <p>{{ [
+        "Czegoś brakuje? Podziel się w e-mailu z innymi, a najlepiej samemu napisać tekst na stronę.",
+        "Czegoś brakuje? Podziel się w e-mailu, a najlepiej samemu pisać naszą kronikę. Ochotnicy mile widziani.",
+        "Masz własne przemyślenia? Stowarzyszenie na pewno chętnie przyjmę wsparcie dodatkowych redaktorów-wolontariuszy.",
+        "O czym zapomnieliśmy? Co przegapiliśmy?",
     ] | random }}</p>
 {% endif %}
 <p>{{ [

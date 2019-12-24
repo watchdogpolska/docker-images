@@ -17,3 +17,4 @@ soupsieve==1.9.5
 tinycss2==1.0.2
 urllib3==1.25.7
 webencodings==0.5.1
+feedparser==5.2.1
