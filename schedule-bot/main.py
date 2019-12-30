@@ -72,7 +72,14 @@ def parse_feed(url, max_days=7):
     minimum_time = datetime.date.today() - datetime.timedelta(days=max_days)
     d = feedparser.parse(url)
     return [
-        x
+        {
+            **x,
+            **{
+                "link_html": next(
+                    (link.href for link in x["links"] if link.type == "text/html"), None
+                )
+            },
+        }
         for x in d["entries"]
         if minimum_time < struct_to_datetime(x["published_parsed"]).date()
     ]
@@ -122,7 +129,6 @@ def main():
     feed_events = parse_feed("https://siecobywatelska.pl/feed/") + parse_feed(
         "https://informacjapubliczna.org/feed/"
     )
-
     template = env.get_template("template.htm")
     html = template.render(
         events=wd_events, etr_events=etr_events, feed_events=feed_events

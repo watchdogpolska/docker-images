@@ -59,7 +59,7 @@
     <ul>
     {% for event in feed_events %}
         <li>
-            <a href="{{event.href}}">{{event.title_detail.value}}</a>
+            <a href="{{event.link_html}}">{{event.title_detail.value}}</a>
             - {{event.published_parsed | structformat}}
         </li>
     {% endfor %}
