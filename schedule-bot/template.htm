@@ -20,7 +20,7 @@
     {% for event in events %}
     <li>{{event.start | datetimeformat}}
     {% if event.days != 0 %}(przez {{event.days}} dni do {{event.end | datetimeformat}}){% endif %}
-    - {{event.summary}} {{event.categories}}</li>
+    - {{event.summary}}</li>
     {% endfor %}
     </ul>
     <p>{{ [
