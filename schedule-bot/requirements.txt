@@ -4,7 +4,7 @@ chardet==3.0.4
 html5lib==1.0.1
 html5print==0.1.2
 icalendar==4.0.4
-idna==2.8
+idna==2.9
 Jinja2==2.10.3
 MarkupSafe==1.1.1
 ply==3.11
