@@ -31,16 +31,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DOCKER_REGISTRY_URL: quay.io
-      DOCKER_REGISTRY_PREFIX: "watchdogpolska"
+      DOCKER_REGISTRY_PREFIX: "watchdogpolska/"
     steps:
     - uses: actions/checkout@v1
     - name: Pull image (best effort)
       run: dockr pull ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }} || echo 'Failed to pull'
     - name: Build image
-      run: echo docker build \
-        --cache-from ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest \
-        --tag ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest \
-        ${{ matrix.image }}
+      run: docker build \
+        --cache-from "${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest" \
+        --tag "${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest" ${{ matrix.image }}
     - name: "Docker login"
       env:
         # DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
