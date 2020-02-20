@@ -31,15 +31,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DOCKER_REGISTRY_URL: quay.io
-      DOCKER_REGISTRY_PREFIX: "watchdogpolska/"
+      DOCKER_IMAGE: quay.io/watchdogpolska/${{ matrix.image }}:latest
     steps:
     - uses: actions/checkout@v1
     - name: Pull image (best effort)
-      run: docker pull ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }} || echo 'Failed to pull'
+      run: docker pull ${DOCKER_IMAGE} || echo 'Failed to pull'
     - name: Build image
-      run: docker build
-        --cache-from "${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest"
-        --tag "${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest" ${{ matrix.image }}
+      run: docker build --cache-from "${DOCKER_IMAGE}" --tag "${DOCKER_IMAGE}" ${{ matrix.image }}
     - name: "Docker login"
       env:
         # DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -49,5 +47,5 @@ jobs:
       run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY_URL}
       if: "github.ref == 'refs/heads/master'"
     - name: Push image
-      run: docker push ${DOCKER_REGISTRY_URL}/${{ matrix.image }}:latest
+      run: docker push 
       if: "github.ref == 'refs/heads/master'"
