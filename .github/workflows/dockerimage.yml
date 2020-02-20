@@ -37,7 +37,7 @@ jobs:
     - name: Pull image (best effort)
       run: dockr pull ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }} || echo 'Failed to pull'
     - name: Build image
-      run: docker build \
+      run: echo docker build \
         --cache-from ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest \
         --tag ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest \
         ${{ matrix.image }}
