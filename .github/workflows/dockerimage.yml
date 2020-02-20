@@ -35,10 +35,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Pull image (best effort)
-      run: dockr pull ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }} || echo 'Failed to pull'
+      run: docker pull ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }} || echo 'Failed to pull'
     - name: Build image
-      run: docker build \
-        --cache-from "${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest" \
+      run: docker build
+        --cache-from "${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest"
         --tag "${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_PREFIX}${{ matrix.image }}:latest" ${{ matrix.image }}
     - name: "Docker login"
       env:
