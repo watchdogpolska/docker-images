@@ -130,8 +130,12 @@ def main():
         "https://informacjapubliczna.org/feed/"
     )
     template = env.get_template("template.htm")
+
+    it_days = (datetime.date(2020,7,1) - datetime.datetime.now().date()).days
+
     html = template.render(
-        events=wd_events, etr_events=etr_events, feed_events=feed_events
+        events=wd_events, etr_events=etr_events, feed_events=feed_events,
+        it_days=str(it_days)
     )
     pretty_html = HTMLBeautifier.beautify(html, 4)
     subject = random.choice(SUBJECT_LIST)
