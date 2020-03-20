@@ -5,12 +5,11 @@ import json
 import datetime
 from time import mktime
 
-import requests
 from jinja2 import Template, Environment, FileSystemLoader
 from html5print import HTMLBeautifier
 
 from dateutils import datetimeformat, structformat, struct_to_datetime
-from ical import parse_ical
+from ical import fetch_filtered_events
 from mailer import send_mail
 from feed import parse_feed
 
@@ -33,12 +32,12 @@ env.filters["structformat"] = structformat
 
 
 def main():
-    etr_events = parse_ical(requests.get(ETR_WARSZAWA_URL).content)
+    etr_events = fetch_filtered_events(ETR_WARSZAWA_URL)
     etr_events = [
         events for events in etr_events if "[J]" in events["summary"]]
 
     wd_events = (
-        parse_ical(requests.get(os.environ["CALENDAR_URL"]).content)
+        fetch_filtered_events(os.environ["CALENDAR_URL"])
         if "CALENDAR_URL" in os.environ
         else []
     )

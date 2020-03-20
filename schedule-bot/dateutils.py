@@ -12,3 +12,9 @@ def datetimeformat(value, format="%Y-%m-%d"):
 
 def structformat(value, format="%Y-%m-%d"):
     return datetimeformat(struct_to_datetime(value), format)
+
+
+def to_date(x):
+    if isinstance(x, datetime.datetime):
+        return x.date()
+    return x
