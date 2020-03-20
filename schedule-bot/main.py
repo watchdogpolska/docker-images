@@ -7,6 +7,7 @@ from time import mktime
 from ical import fetch_filtered_events
 from mailer import send_mail, render_html, random_email_subject
 from feed import parse_feed
+from twitter import authorize_twitter_api, get_user_tweets
 
 ETR_WARSZAWA_URL = "https://raw.githubusercontent.com/ad-m/etr-warszawa-ical/master/648.ics"
 
@@ -28,9 +29,21 @@ def main():
         "https://informacjapubliczna.org/feed/"
     )
 
+    twitter_api = (
+        authorize_twitter_api()
+        if "TWITTER_API_KEY" in os.environ
+        else False
+    )
+
+    tweets = (
+        get_user_tweets(twitter_api)
+        if twitter_api
+        else []
+    )
+
     it_days = (datetime.date(2020, 7, 1) - datetime.datetime.now().date()).days
 
-    html = render_html(wd_events, etr_events, feed_events, it_days)
+    html = render_html(wd_events, etr_events, feed_events, it_days, tweets)
     subject = random_email_subject()
 
     return send_mail(subject, html)
