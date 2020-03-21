@@ -5,10 +5,10 @@ import random
 from urllib.parse import urlparse
 from email.message import EmailMessage
 from smtplib import SMTP
-from jinja2 import Template, Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader
 from html5print import HTMLBeautifier
 
-from dateutils import datetimeformat, structformat, struct_to_datetime
+from dateutils import datetimeformat, structformat
 
 
 def render_html(events, etr_events, feed_events, it_days, tweets):

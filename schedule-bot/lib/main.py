@@ -1,8 +1,6 @@
 import os
-import sys
 import json
 import datetime
-from time import mktime
 
 from ical import fetch_filtered_events
 from mailer import send_mail, render_html, random_email_subject
