@@ -1,5 +1,6 @@
 import os
 import tweepy
+from re import findall
 from datetime import datetime, timedelta
 
 
@@ -18,18 +19,31 @@ def authorize_twitter_api():
     return api
 
 
+def put_links_in_anchors(text):
+    link_regex = r'http[s]?://\S*'
+    matches = findall(link_regex, text)
+    for m in matches:
+        template = f'<a href="{m}">{m}</a>'
+        text = text.replace(m, template)
+
+    return text
+
+
 def get_user_tweets(api, id='SiecObywatelska', limit=30, expiration_time=7):
     tweets = []
     min_time = datetime.today() - timedelta(days=expiration_time)
 
-    for tweet in tweepy.Cursor(api.user_timeline, id=id).items():
+    for tweet in tweepy.Cursor(api.user_timeline, id=id, tweet_mode='extended').items():
         if tweet.created_at < min_time:
             break
 
+        text_with_links = put_links_in_anchors(tweet.full_text)
+
         tweets.append({
             "id": tweet.id,
-            "text": tweet.text,
-            "created_at": tweet.created_at
+            "text": text_with_links,
+            "created_at": tweet.created_at,
+            "url": f"https://twitter.com/{tweet.user.screen_name}/status/{tweet.id}"
         })
 
         if len(tweets) == limit:
