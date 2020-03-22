@@ -1,5 +1,4 @@
 import os
-import json
 import datetime
 
 from ical import fetch_filtered_events
