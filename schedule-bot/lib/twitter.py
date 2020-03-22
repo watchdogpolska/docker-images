@@ -29,7 +29,7 @@ def put_links_in_anchors(text):
     return text
 
 
-def get_user_tweets(api, id='SiecObywatelska', limit=30, expiration_time=7):
+def get_user_tweets(api, id='SiecObywatelska', expiration_time=7):
     tweets = []
     min_time = datetime.today() - timedelta(days=expiration_time)
 
@@ -45,8 +45,5 @@ def get_user_tweets(api, id='SiecObywatelska', limit=30, expiration_time=7):
             "created_at": tweet.created_at,
             "url": f"https://twitter.com/{tweet.user.screen_name}/status/{tweet.id}"
         })
-
-        if len(tweets) == limit:
-            break
 
     return tweets
