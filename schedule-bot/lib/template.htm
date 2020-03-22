@@ -76,7 +76,7 @@
 <ul>
     {% for tweet in tweets %}
     <li>
-        {{ tweet['text'] }}<a href="{{ tweet['url'] }}">{{ tweet['created_at'] }}</a>
+        {{ tweet.text }} – <a href="{{ tweet.url }}">{{ tweet.created_at }}</a>
     </li>
     {% endfor %}
 </ul>
