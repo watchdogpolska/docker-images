@@ -5,8 +5,10 @@ from ical import fetch_filtered_events
 from mailer import send_mail, render_html, random_email_subject
 from feed import parse_feed
 from twitter import authorize_twitter_api, get_user_tweets
+from fb import get_facebook_posts, filter_facebook_posts
 
 ETR_WARSZAWA_URL = "https://raw.githubusercontent.com/ad-m/etr-warszawa-ical/master/648.ics"
+FACEBOOK_ID = "SiecObywatelskaWatchdogPolska"
 
 
 def main():
@@ -38,9 +40,16 @@ def main():
         else []
     )
 
+    fb_posts = (
+        filter_facebook_posts(get_facebook_posts(FACEBOOK_ID))
+        if "FACEBOOK_ACCESS_TOKEN" in os.environ
+        else []
+    )
+
     it_days = (datetime.date(2020, 7, 1) - datetime.datetime.now().date()).days
 
-    html = render_html(wd_events, etr_events, feed_events, it_days, tweets)
+    html = render_html(wd_events, etr_events, feed_events,
+                       it_days, tweets, fb_posts)
     subject = random_email_subject()
 
     return send_mail(subject, html)

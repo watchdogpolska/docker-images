@@ -87,7 +87,17 @@
         "O czym zapomnieliśmy? Co przegapiliśmy?",
     ] | random }}</p>
 {% endif %}
-<p> 
+{% if fb_posts %}
+<p>Nasze posty na Facebooku z ostatniego tygodnia:</p>
+<ul>
+    {% for post in fb_posts %}
+    <li>
+        {{ post.message }} - <a href="{{ post.permalink_url }}">{{ post.created_time }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+<p>
 {{ [
 "IT w Stowarzyszeniu opiera się o Adama Dobrawego i – w ograniczonym zakresie – Marcina Bójko. Ja współpracuje ze Stowarzyszeniem komercyjnie do lipca 2020 roku, co wyjaśniałem we wcześniejszych wiadomościach.",
 "Filarami IT Stowarzyszenia jest Adam Dobrawy i Marcin Bójko. Jeden z nich odłączy się w lipcu 2020 roku, co może poważnie zagrozić ciągłość działania systemów organizacji i ich bezpieczeństwu."
