@@ -25,6 +25,5 @@ def get_facebook_posts(resource_id):
 def filter_facebook_posts(posts, max_days=7):
     min_time = datetime.today() - timedelta(days=max_days)
     for p in posts:
-        result = p['created_time'] >= min_time.date()
         if p['created_time'] >= min_time.date():
             yield p
