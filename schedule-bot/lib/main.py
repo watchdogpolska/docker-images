@@ -41,7 +41,7 @@ def main():
     )
 
     fb_posts = (
-        filter_facebook_posts(get_facebook_posts(FACEBOOK_ID))
+        list(filter_facebook_posts(get_facebook_posts(FACEBOOK_ID)))
         if "FACEBOOK_ACCESS_TOKEN" in os.environ
         else []
     )

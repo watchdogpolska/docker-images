@@ -12,19 +12,19 @@ def get_facebook_posts(resource_id):
     url = base_url.format(resource_id, fields, FACEBOOK_ACCESS_TOKEN)
 
     result = requests.get(url)
-    posts = []
     json = result.json()['posts']['data']
-    for i in range(len(json)):
-        post = json[i]
-        posts.append({
+    for post in json:
+        yield {
             'id': post['id'],
-            'message': put_links_in_anchors(post['message']),
+            'message': put_links_in_anchors(post.get('message', '-')),
             'created_time':  datetime.strptime(post['created_time'], "%Y-%m-%dT%H:%M:%S%z").date(),
             'permalink_url': post['permalink_url']
-        })
-    return posts
+        }
 
 
 def filter_facebook_posts(posts, max_days=7):
     min_time = datetime.today() - timedelta(days=max_days)
-    return [p for p in posts if p['created_time'] >= min_time.date()]
+    for p in posts:
+        result = p['created_time'] >= min_time.date()
+        if p['created_time'] >= min_time.date():
+            yield p

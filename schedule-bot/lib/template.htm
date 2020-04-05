@@ -64,12 +64,6 @@
         </li>
     {% endfor %}
     </ul>
-    <p>{{ [
-        "Czegoś brakuje? Podziel się w e-mailu z innymi, a najlepiej samemu napisać tekst na stronę.",
-        "Czegoś brakuje? Podziel się w e-mailu, a najlepiej samemu pisać naszą kronikę. Ochotnicy mile widziani.",
-        "Masz własne przemyślenia? Stowarzyszenie na pewno chętnie przyjmę wsparcie dodatkowych redaktorów-wolontariuszy.",
-        "O czym zapomnieliśmy? Co przegapiliśmy?",
-    ] | random }}</p>
 {% endif %}
 {% if tweets %}
 <p>Nasze tweety z ostatniego tygodnia:</p>
@@ -80,12 +74,6 @@
     </li>
     {% endfor %}
 </ul>
-<p>{{ [
-        "Czegoś brakuje? Podziel się w e-mailu z innymi, a najlepiej samemu napisać tekst na stronę.",
-        "Czegoś brakuje? Podziel się w e-mailu, a najlepiej samemu pisać naszą kronikę. Ochotnicy mile widziani.",
-        "Masz własne przemyślenia? Stowarzyszenie na pewno chętnie przyjmę wsparcie dodatkowych redaktorów-wolontariuszy.",
-        "O czym zapomnieliśmy? Co przegapiliśmy?",
-    ] | random }}</p>
 {% endif %}
 {% if fb_posts %}
 <p>Nasze posty na Facebooku z ostatniego tygodnia:</p>
@@ -97,6 +85,12 @@
     {% endfor %}
 </ul>
 {% endif %}
+<p>{{ [
+    "Czegoś brakuje? Podziel się w e-mailu z innymi, a najlepiej samemu napisać tekst na stronę.",
+    "Czegoś brakuje? Podziel się w e-mailu, a najlepiej samemu pisać naszą kronikę. Ochotnicy mile widziani.",
+    "Masz własne przemyślenia? Stowarzyszenie na pewno chętnie przyjmę wsparcie dodatkowych redaktorów-wolontariuszy.",
+    "O czym zapomnieliśmy? Co przegapiliśmy?",
+] | random }}</p>
 <p>
 {{ [
 "IT w Stowarzyszeniu opiera się o Adama Dobrawego i – w ograniczonym zakresie – Marcina Bójko. Ja współpracuje ze Stowarzyszeniem komercyjnie do lipca 2020 roku, co wyjaśniałem we wcześniejszych wiadomościach.",
