@@ -11,9 +11,9 @@ def get_facebook_data(resource_id):
     fields = "posts{permalink_url,created_time,message},videos{id,permalink_url,description,title,created_time}"
     url = base_url.format(resource_id, fields, FACEBOOK_ACCESS_TOKEN)
 
-    result = requests.get(url)
-    postsJson = result.json()['posts']['data']
-    videosJson = result.json()['videos']['data']
+    result = requests.get(url).json()
+    postsJson = result['posts']['data']
+    videosJson = result['videos']['data']
 
     posts = list(format_facebook_posts(postsJson))
     videos = list(format_facebook_videos(videosJson))
