@@ -5,7 +5,7 @@ from ical import fetch_filtered_events
 from mailer import send_mail, render_html, random_email_subject
 from feed import parse_feed
 from twitter import authorize_twitter_api, get_user_tweets
-from fb import get_facebook_data, filter_facebook_posts
+from fb import get_facebook_data, filter_facebook_resources
 
 ETR_WARSZAWA_URL = "https://raw.githubusercontent.com/ad-m/etr-warszawa-ical/master/648.ics"
 FACEBOOK_ID = "SiecObywatelskaWatchdogPolska"
@@ -41,16 +41,16 @@ def main():
     )
 
     fb_data = (
-        list(filter_facebook_posts(get_facebook_data(FACEBOOK_ID)))
+        get_facebook_data(FACEBOOK_ID)
         if "FACEBOOK_ACCESS_TOKEN" in os.environ
         else []
     )
 
     fb_posts = []
     fb_videos = []
-    if fb_posts:
-        fb_posts = fb_data['posts']
-        fb_videos = fb_data['videos']
+    if fb_data:
+        fb_posts = filter_facebook_resources(fb_data['posts'])
+        fb_videos = filter_facebook_resources(fb_data['videos'])
 
     it_days = (datetime.date(2020, 7, 1) - datetime.datetime.now().date()).days
 
