@@ -85,6 +85,13 @@
     {% endfor %}
 </ul>
 {% endif %}
+{% if fb_videos %}
+<p>Nasze video na Facebooku z ostatniego tygodnia</p>
+    {% for video in fb_videos %}
+    <li>
+        <a href="{{ video.permalink_url}}">{{ video.title }}</a>
+    </li>
+{% endif %}
 <p>{{ [
     "Czegoś brakuje? Podziel się w e-mailu z innymi, a najlepiej samemu napisać tekst na stronę.",
     "Czegoś brakuje? Podziel się w e-mailu, a najlepiej samemu pisać naszą kronikę. Ochotnicy mile widziani.",

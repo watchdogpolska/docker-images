@@ -18,6 +18,8 @@ def get_facebook_data(resource_id):
     posts = format_facebook_posts(postsJson)
     videos = format_facebook_videos(videosJson)
 
+    return {posts: posts, videos: videos}
+
 
 def format_facebook_posts(postsData):
     for post in postsData:

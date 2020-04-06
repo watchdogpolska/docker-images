@@ -40,16 +40,22 @@ def main():
         else []
     )
 
-    fb_posts = (
+    fb_data = (
         list(filter_facebook_posts(get_facebook_data(FACEBOOK_ID)))
         if "FACEBOOK_ACCESS_TOKEN" in os.environ
         else []
     )
 
+    fb_posts = []
+    fb_videos = []
+    if fb_posts:
+        fb_posts = fb_data['posts']
+        fb_videos = fb_data['videos']
+
     it_days = (datetime.date(2020, 7, 1) - datetime.datetime.now().date()).days
 
     html = render_html(wd_events, etr_events, feed_events,
-                       it_days, tweets, fb_posts)
+                       it_days, tweets, fb_posts, fb_videos)
     subject = random_email_subject()
 
     return send_mail(subject, html)
