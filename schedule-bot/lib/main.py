@@ -5,7 +5,7 @@ from ical import fetch_filtered_events
 from mailer import send_mail, render_html, random_email_subject
 from feed import parse_feed
 from twitter import authorize_twitter_api, get_user_tweets
-from fb import get_facebook_posts, filter_facebook_posts
+from fb import get_facebook_data, filter_facebook_posts
 
 ETR_WARSZAWA_URL = "https://raw.githubusercontent.com/ad-m/etr-warszawa-ical/master/648.ics"
 FACEBOOK_ID = "SiecObywatelskaWatchdogPolska"
@@ -41,7 +41,7 @@ def main():
     )
 
     fb_posts = (
-        list(filter_facebook_posts(get_facebook_posts(FACEBOOK_ID)))
+        list(filter_facebook_posts(get_facebook_data(FACEBOOK_ID)))
         if "FACEBOOK_ACCESS_TOKEN" in os.environ
         else []
     )
