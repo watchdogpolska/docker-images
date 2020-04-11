@@ -28,6 +28,7 @@ jobs:
         - "ubuntu-sshd-github"
         - "yq"
         - "zabbix-agent"
+        - "apache-tika"
     runs-on: ubuntu-latest
     env:
       DOCKER_REGISTRY_URL: quay.io
