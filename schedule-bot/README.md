@@ -16,6 +16,7 @@ docker run \
     -e TWITTER_API_SECRET="..."\
     -e TWITTER_ACCESS_TOKEN="..."\
     -e TWITTER_ACCESS_SECRET="..." \
+    -e FACEBOOK_ACCESS_TOKEN="..." \
     quay.io/watchdogpolska/schedule-bot
 ```
 
@@ -29,8 +30,16 @@ docker run \
 - `TWITTER_API_SECRET`
 - `TWITTER_ACCESS_TOKEN`
 - `TWITTER_ACCESS_SECRET`
+- `FACEBOOK_ACCESS_TOKEN`
 
 ## Acquiring Twitter API keys
 
 To acquire Twitter API keys you have to go to [https://developer.twitter.com/en/apps](developer.twitter.com/en/apps),
 and register new application. After it's done, go to your app, `Keys and tokens` section and copy your credentials.
+
+## Obtaining Facebook Access Token
+
+To obtain Facebook Access Token go to [https://developers.facebook.com](developers.facebook.com),
+register new application, then go to `Tools` -> `Graph API Explorer` and click generate new token.
+For this application to work you must provide `manage_pages` permission, or enable
+[Page Public Content Access feature](https://developers.facebook.com/docs/apps/review/feature/).

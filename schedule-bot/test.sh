@@ -6,4 +6,5 @@ docker run \
     -e TWITTER_API_SECRET \
     -e TWITTER_ACCESS_TOKEN \
     -e TWITTER_ACCESS_SECRET \
+    -e FACEBOOK_ACCESS_TOKEN \
     app

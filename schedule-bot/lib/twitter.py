@@ -1,7 +1,7 @@
 import os
 import tweepy
-from re import findall
 from datetime import datetime, timedelta
+from textutils import put_links_in_anchors
 
 
 def authorize_twitter_api():
@@ -17,16 +17,6 @@ def authorize_twitter_api():
     api.verify_credentials()  # will throw error if wrong credentials
 
     return api
-
-
-def put_links_in_anchors(text):
-    link_regex = r'http[s]?://\S*'
-    matches = findall(link_regex, text)
-    for m in matches:
-        template = f'<a href="{m}">{m}</a>'
-        text = text.replace(m, template)
-
-    return text
 
 
 def get_user_tweets(api, id='SiecObywatelska', limit=200, expiration_time=7):
