@@ -38,7 +38,7 @@ def main():
         else []
     )
 
-    it_days = (datetime.date(2020, 7, 1) - datetime.datetime.now().date()).days
+    it_days = (datetime.date(2020, 7, 30) - datetime.datetime.now().date()).days
 
     html = render_html(wd_events, etr_events, feed_events, it_days, tweets)
     subject = random_email_subject()
