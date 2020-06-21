@@ -1,4 +1,4 @@
-# mycli
+# pyupgrade
 
 [![Docker Repository on Quay](https://quay.io/repository/watchdogpolska/pyupgrade/status "Docker Repository on Quay")](https://quay.io/repository/watchdogpolska/pyupgrade)
 

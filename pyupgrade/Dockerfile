@@ -1,4 +1,6 @@
-FROM python:3.7-slim
+FROM python:3.8-slim
 RUN pip install pyupgrade
 WORKDIR /data
-CMD bash -c 'find . -name "*.py" ! \( -wholename "./node_modules/*" -o -wholename "./.tox/*" -o -wholename "./bower_components/*" \) | xargs pyupgrade --py3-only'
+COPY ./docker-entrypoint.sh /usr/bin/
+ENTRYPOINT [ "docker-entrypoint.sh" ]
+CMD ["--py3-only"]
