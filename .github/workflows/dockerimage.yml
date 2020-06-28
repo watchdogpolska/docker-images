@@ -30,23 +30,14 @@ jobs:
         - "zabbix-agent"
         - "apache-tika"
     runs-on: ubuntu-latest
-    env:
-      DOCKER_REGISTRY_URL: quay.io
-      DOCKER_IMAGE: quay.io/watchdogpolska/${{ matrix.image }}:latest
     steps:
     - uses: actions/checkout@v1
-    - name: Pull image (best effort)
-      run: docker pull ${DOCKER_IMAGE} || echo 'Failed to pull'
-    - name: Build image
-      run: docker build --cache-from "${DOCKER_IMAGE}" --tag "${DOCKER_IMAGE}" ${{ matrix.image }}
-    - name: "Docker login"
-      env:
-        # DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        # DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.QUAY_DOCKER_PASSWORD }}
-        DOCKER_USERNAME: ${{ secrets.QUAY_DOCKER_USERNAME }}
-      run: echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY_URL}
-      if: "github.ref == 'refs/heads/master'"
-    - name: Push image
-      run: docker push "${DOCKER_IMAGE}"
-      if: "github.ref == 'refs/heads/master'"
+    - uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.QUAY_DOCKER_USERNAME }}
+        password: ${{ secrets.QUAY_DOCKER_PASSWORD }}
+        repository: "watchdogpolska/${{ matrix.image }}"
+        registry: 'quay.io'
+        path: '${{ matrix.image }}'
+        tag_with_ref: true
+        add_git_labels: true
