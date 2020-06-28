@@ -1,4 +1,4 @@
-FROM ubuntu:18.10
+FROM ubuntu:18.04
 MAINTAINER Adam Dobrawy "http://github.com/ad-m/"
 RUN apt-get update \
 && apt-get install -y openssh-server curl wget git less \
