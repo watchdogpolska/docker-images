@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.12
 RUN apk add rsyslog
 ADD ./remote.conf /etc/rsyslog.d/remote.conf
 RUN sed '/.*module(load="imklog").*/d' -i /etc/rsyslog.conf
