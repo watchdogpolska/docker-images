@@ -1,4 +1,4 @@
-FROM hashicorp/terraform:light
+FROM hashicorp/terraform:0.12.28
 RUN wget https://github.com/mercari/tfnotify/releases/download/v0.3.0/tfnotify_v0.3.0_linux_amd64.tar.gz && \
 tar xvzf tfnotify_v0.3.0_linux_amd64.tar.gz && \
 mv tfnotify_*_linux_amd64/tfnotify /usr/local/bin/tfnotify && \
