@@ -44,6 +44,7 @@ jobs:
         username: ${{ secrets.QUAY_DOCKER_USERNAME }}
         password: ${{ secrets.QUAY_DOCKER_PASSWORD }}
         repository: "watchdogpolska/${{ matrix.image }}"
+        cache_froms: quay.io/watchdogpolska/${{ matrix.image }}
         registry: 'quay.io'
         path: '${{ matrix.image }}'
         tag_with_ref: true
@@ -56,6 +57,5 @@ jobs:
         repository: "${{ matrix.image }}"
         registry: 'docker-registry.siecobywatelska.pl'
         path: '${{ matrix.image }}'
-        cache_froms: quay.io/watchdogpolska/${{ matrix.image }}
         tag_with_ref: true
         add_git_labels: true
