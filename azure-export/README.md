@@ -7,7 +7,7 @@ Docker image containing tools for archiving Azure metrics of Azure storage accou
 ## Usage
 
 ```.bash
-docker run -e AZURE_APP_PASSWORD="xxx" -e DATABASE_URL="postgres://xxx" quay.io/watchdogpolska/azure-export
+docker run -e AZURE_APP_PASSWORD="xxx" -e DATABASE_URL="postgres://xxx" docker-registry.siecobywatelska.pl/azure-export
 ```
 
 ## Features

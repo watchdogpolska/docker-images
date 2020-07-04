@@ -13,7 +13,7 @@ Use ```/var/syslog/hosts``` as volume for stored logs.
 ## Example usage
 
 ```bash
-docker run -p 514:514/udp -p 514:514 "./logs/:/var/syslog/hosts" quay.io/watchdogpolska/rsyslogd
+docker run -p 514:514/udp -p 514:514 "./logs/:/var/syslog/hosts" docker-registry.siecobywatelska.pl/rsyslogd
 ```
 
 ## Testing

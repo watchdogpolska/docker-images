@@ -16,7 +16,7 @@ docker run \
     -e TWITTER_API_SECRET="..."\
     -e TWITTER_ACCESS_TOKEN="..."\
     -e TWITTER_ACCESS_SECRET="..." \
-    quay.io/watchdogpolska/schedule-bot
+    docker-registry.siecobywatelska.pl/schedule-bot
 ```
 
 ## Settings
