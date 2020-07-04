@@ -39,7 +39,7 @@ jobs:
       with:
         paths: ${{ matrix.image }}
     - uses: docker/build-push-action@v1
-      if: "steps.changed.outputs.changed == 'true'"
+      # if: "steps.changed.outputs.changed == 'true'"
       with:
         username: ${{ secrets.QUAY_DOCKER_USERNAME }}
         password: ${{ secrets.QUAY_DOCKER_PASSWORD }}
