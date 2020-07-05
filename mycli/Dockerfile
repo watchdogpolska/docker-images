@@ -1,4 +1,4 @@
-FROM python:slim
+FROM python:3.8-slim
 RUN pip install mycli
 ADD ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
