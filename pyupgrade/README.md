@@ -15,5 +15,5 @@ Docker image containing [pyupgrade](https://github.com/asottile/pyupgrade) - Pyt
 ## Usage
 
 ```.bash
-docker run -it -v $PWD:/data quay.io/watchdogpolska/pyupgrade
+docker run -it -v $PWD:/data docker-registry.siecobywatelska.pl/pyupgrade
 ```

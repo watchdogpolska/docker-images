@@ -12,7 +12,7 @@ docker run -e BACKUP_SRC="postgresql" \
     -e BACKUP_POSTGRESQL_USER="postgres://xxx" \
     -e BACKUP_POSTGRESQL_PASSWORD="postgres://xxx" \
     -v output:/output
-    quay.io/watchdogpolska/remote-archiver
+    docker-registry.siecobywatelska.pl/remote-archiver
 ```
 
 ## Features
