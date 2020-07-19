@@ -28,6 +28,7 @@ jobs:
         - "yq"
         - "zabbix-agent"
         - "apache-tika"
+        - "emaillabs-report-tool"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
