@@ -174,4 +174,4 @@ if __name__ == "__main__":
         print("CSV file at: " + args.csv_file)
 
     with open(args.data_file, "w") as fp:
-        json.dump({"blacklist_ids": data}, fp, indent=2)
+        json.dump({"blacklist_ids": new_data}, fp, indent=2)
