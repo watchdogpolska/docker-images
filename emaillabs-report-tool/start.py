@@ -55,9 +55,9 @@ class Formatter(object):
         return "\n\n".join(self.output_row(row) for row in rows)
 
     def output_row(self, data):
-        msg = BASIC_INFO.format(**data).trim()
+        msg = BASIC_INFO.format(**data).strip()
         for email in data["emails"]:
-            msg += MAIL_INFO.format(**email).trim()
+            msg += MAIL_INFO.format(**email).strip()
         return msg
 
     def format_file(self, rows, file):
