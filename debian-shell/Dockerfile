@@ -1,4 +1,4 @@
-FROM debian:10.4
+FROM debian:10.5
 RUN apt-get update \
 && apt-get install -y --no-install-recommends ca-certificates rsync curl wget nano locales \
 && rm -rf /var/lib/apt/lists/*
