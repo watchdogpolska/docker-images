@@ -20,7 +20,7 @@ def render_html(events, etr_events, feed_events, it_days, tweets):
     template = env.get_template("template.htm")
     html = template.render(
         events=events, etr_events=etr_events, feed_events=feed_events,
-        it_days=str(it_days), tweets=tweets
+        it_days=it_days, tweets=tweets
     )
 
     pretty_html = HTMLBeautifier.beautify(html, 4)
