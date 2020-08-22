@@ -35,10 +35,10 @@ jobs:
     - uses: actions/checkout@v1
       with:
         fetch-depth: 0
-    - uses: marceloprado/has-changed-path@master
+    - uses: marceloprado/has-changed-path@v1.0
       id: changed
       with:
-        paths: ${{ matrix.image }}
+        paths: ${{ matrix.image }} .github
     - uses: docker/build-push-action@v1
       if: "steps.changed.outputs.changed == 'true'"
       with:
