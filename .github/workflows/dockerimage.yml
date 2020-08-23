@@ -13,7 +13,7 @@ jobs:
         - "alpine-curl"
         - "azure-export"
         - "civicrm-php"
-        - "civicrm-sshd"
+        # - "civicrm-sshd" - suspend rebuild, see watchdogpolska/infra#378
         - "debian-shell"
         - "metabase-watchdog"
         - "mixpanel-proxy"
