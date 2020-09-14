@@ -3,7 +3,7 @@ certifi==2020.6.20
 chardet==3.0.4
 html5lib==1.1
 html5print==0.1.2
-icalendar==4.0.6
+icalendar==4.0.7
 idna==2.10
 Jinja2==2.11.2
 MarkupSafe==1.1.1
