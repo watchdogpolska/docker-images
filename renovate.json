@@ -1,6 +1,7 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    "default:automergeDigest"
   ],
   "docker": {
     "pinDigests": true
