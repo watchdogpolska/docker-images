@@ -87,22 +87,6 @@
         "O czym zapomnieliśmy? Co przegapiliśmy?",
     ] | random }}</p>
 {% endif %}
-<p> 
-{% if it_days > 0 %} 
-{{ [
-"IT w Stowarzyszeniu opiera się o Adama Dobrawego i – w ograniczonym zakresie – Marcina Bójko. Ja współpracuje ze Stowarzyszeniem komercyjnie do lipca 2020 roku, co wyjaśniałem we wcześniejszych wiadomościach.",
-"Filarami IT Stowarzyszenia jest Adam Dobrawy i Marcin Bójko. Jeden z nich odłączy się w lipcu 2020 roku, co może poważnie zagrozić ciągłość działania systemów organizacji i ich bezpieczeństwu."
-] | random }} {{ [
-"Pozostało zatem " + str(it_days) + " dni na zapełnienie luki.",
-"Stowarzyszenie ma zaledwie " + str(it_days) + " dni na uzupełnienie zespołu, co przy obecnym rynku IT nie będzie łatwe.",
-"Stowarzyszenie ma zaledwie " + str(it_days) + " dni na uzupełnienie zespołu, co przy rozbudowanej infrastrukturze nie jest długim czasem na przekazanie obowiązków.",
-"Stowarzyszenie ma tylko " + str(it_days) + " dni na uzupełnienie zespołu, aby zachować ciągłość i przekazanie obowiązków."
-] | random }} {{ [
-    "Kto ma mnie zastąpić?",
-    "Kto może nasze IT wspomóc? Komercyjnie, bo ochotników wśród członków do wolontariatu w IT brak."
-] | random}}
-</p>
-{% endif %}
 <p>{{ [
 "Zapraszam wszystkich do współpracy, szczególnie w obszarze IT:",
 "Każdy członek i członkini mogą zaangażować się w Stowarzyszeniu w tematach:",
@@ -114,18 +98,31 @@
 "Czy znasz kogoś kto mógłby pomóc Stowarzyszeniu w IT? Potrzebujemy ludzi do:",
 ] | random }}</p>
 <ul>
-<li>wykonania front-endu w Vue / React do <a href="https://github.com/watchdogpolska/small_eod/">marzenia Agnieszki Zdanowicz</a>.</li>
+<li>wykonania front-endu w React do <a href="https://github.com/watchdogpolska/small_eod/">marzenia Agnieszki Zdanowicz</a>.</li>
 <li>migracji Panelu, zgodnie z {{ [
     "- moim zdaniem - nierozważną",
     "- moim zdaniem - nieprzemyślaną",
-    "budzącą moje zdziwnienie",
-    "świętą",
+    "budzącą moje zdziwienie",
     "najważniejszą",
 ] | random }} <a href="https://listy.siecobywatelska.pl/private/sllgo_lista/2019-June/008527.html">wolą Walnego Zebrania Członków</a></li>
 <li>rozwoju Fedrowania, zgodnie z potrzebami Stowarzyszeniami opisanymi na <a href="https://github.com/watchdogpolska/feder/">GitHub</a></li>
 <li>rozwoju Poradni, zgodnie z potrzebami Stowarzyszeniami opisanymi na <a href="https://github.com/watchdogpolska/poradnia/">GitHub</a></li>
 </ul>
+{% if issues %}
+<p>{{ [
+    "Ostatnio były aktualizacje w następujących zagadnieniach gotowych do wzięcia przez wolontariuszy IT:",
+    "W ostatnich 14 dniach były aktualizacje w następujących zagadnieniach gotowych do wzięcia przez wolontariuszy IT:",
+    "Następujące ostatnie zagadnienia są przygotowane, ale szukają wykonawcy:",
+    "Potrzebujemy ludzi do wykonania m. in.:",
+    "Najświeższe zagadnienia przygotowane, ale wymagające ludzi do wykonania to m. in. :",
+] | random }}</p>
+<ul>
+{% for issue in issues %}
+<li>{{issue.repository.full_name}} - <a href="{{issue.html_url}}">{{issue.title}}</a></li>
+{% endfor %}
+</ul>
 </p>
+{% endif %}
 <p>{{ [
     "Pozdrawiam",
     "Żegnam",

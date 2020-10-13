@@ -11,17 +11,14 @@ from html5print import HTMLBeautifier
 from dateutils import datetimeformat, structformat
 
 
-def render_html(events, etr_events, feed_events, it_days, tweets):
+def render_html(**context):
     dir_path = os.path.dirname(os.path.realpath(__file__))
     env = Environment(loader=FileSystemLoader(dir_path))
     env.filters["datetimeformat"] = datetimeformat
     env.filters["structformat"] = structformat
 
     template = env.get_template("template.htm")
-    html = template.render(
-        events=events, etr_events=etr_events, feed_events=feed_events,
-        it_days=it_days, tweets=tweets
-    )
+    html = template.render(**context)
 
     pretty_html = HTMLBeautifier.beautify(html, 4)
 
