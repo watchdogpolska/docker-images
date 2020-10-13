@@ -2,7 +2,7 @@ import requests
 import datetime
 
 
-def fetch_latest_issues(max_days=7):
+def fetch_latest_issues(max_days=14):
     minimum_time = (datetime.date.today() - datetime.timedelta(days=max_days)).strftime(
         "%Y-%m-%d"
     )
