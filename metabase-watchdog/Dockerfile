@@ -1,4 +1,4 @@
-FROM openjdk:8-jre
+FROM openjdk:8-jre@sha256:13a8385cc52863ab88e37508dc8fd7af27d265b1facd139051e1fbe3d63e2c65
 
 WORKDIR /opt
 ENV METABASE_VERSION="0.31.2"
