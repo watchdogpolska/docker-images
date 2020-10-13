@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
   psql:
-    image: postgres
+    image: postgres@sha256:832e01fa055c55a9c9195db231cf3935a81b7b60c8cccd64e7b5395d1ee1948b
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: pass
@@ -24,7 +24,7 @@ services:
       - psql
 
   mysql:
-    image: mysql
+    image: mysql@sha256:77b7e09c906615c1bb59b2e9d7703f728b1186a5a70e547ce2f1079ef4c1c5ca
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     environment:
