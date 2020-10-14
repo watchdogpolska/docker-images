@@ -2,7 +2,7 @@ version: '3'
 
 services:
   monitoring:
-    image: docker-registry.siecobywatelska.pl/zabbix-agent:latest@sha256:b453fd58d6192daa6295b26208a2ac72a2320e3da749163da579aaff9bba2508
+    image: docker-registry.siecobywatelska.pl/zabbix-agent:latest@sha256:2e3ce6f7658d1b802c46b7364278665bb4d89a8f2937417c0eb388f190b33a45
     ports:
       - "10050:10050"
     privileged: true
