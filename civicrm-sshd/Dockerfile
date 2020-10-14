@@ -1,4 +1,4 @@
-FROM docker-registry.siecobywatelska.pl/civicrm-php:latest@sha256:bfe35470191bd82a68015b2d2458783c88b459dc03401753ae8392f4dbad83b4
+FROM docker-registry.siecobywatelska.pl/civicrm-php:latest@sha256:941e66d55ed31c103392ba42696ea1675e3206f3a6454f74653d822f4c96c0d7
 MAINTAINER Adam Dobrawy "http://github.com/ad-m/"
 # Setup SSHD server
 RUN apt-get update \
