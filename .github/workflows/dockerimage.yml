@@ -39,13 +39,15 @@ jobs:
       id: changed
       with:
         paths: ${{ matrix.image }} .github
+    - name: Populate Docker cache
+      run: docker pull quay.io/watchdogpolska/${{ matrix.image }}:latest
     - uses: docker/build-push-action@v1
       if: "steps.changed.outputs.changed == 'true'"
       with:
         username: "${{ secrets.QUAY_DOCKER_USERNAME }}"
         password: "${{ secrets.QUAY_DOCKER_PASSWORD }}"
         repository: "watchdogpolska/${{ matrix.image }}"
-        cache_froms: "quay.io/watchdogpolska/${{ matrix.image }}"
+        cache_froms: "quay.io/watchdogpolska/${{ matrix.image }}:latest"
         registry: 'quay.io'
         path: '${{ matrix.image }}'
         tag_with_ref: true
@@ -57,7 +59,7 @@ jobs:
         password: "${{ secrets.DOCKER_PASSWORD }}"
         repository: "${{ matrix.image }}"
         registry: 'docker-registry.siecobywatelska.pl'
-        cache_froms: "quay.io/watchdogpolska/${{ matrix.image }}"
+        cache_froms: "quay.io/watchdogpolska/${{ matrix.image }}:latest"
         path: '${{ matrix.image }}'
         tag_with_ref: true
         add_git_labels: true
