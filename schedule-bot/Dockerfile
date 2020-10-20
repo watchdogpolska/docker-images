@@ -1,4 +1,4 @@
-FROM python:3.8@sha256:31f1886d4d20eb2a8639ed3597ea973315c2edb272014f5c80aa7afdfdc6c676
+FROM python:3.8@sha256:29efd1eb1ee5b68683440f3dda64519426539e7839a5d4edb131ddab93cd0f45
 COPY ./requirements.txt .
 RUN pip install -r ./requirements.txt
 COPY ./lib .
