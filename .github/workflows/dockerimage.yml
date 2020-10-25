@@ -40,9 +40,9 @@ jobs:
       with:
         paths: ${{ matrix.image }} .github
     - name: Populate Docker cache from Quay.io
-      run: docker pull quay.io/watchdogpolska/${{ matrix.image }}:latest
+      run: docker pull quay.io/watchdogpolska/${{ matrix.image }}:latest || echo 'No image available'
     - name: Populate Docker cache from docker-registry.siecobywatelska.pl
-      run: docker pull docker-registry.siecobywatelska.pl/watchdogpolska/${{ matrix.image }}:latest
+      run: docker pull docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest || echo 'No image available'
     - uses: docker/build-push-action@v1
       if: "steps.changed.outputs.changed == 'true'"
       with:
@@ -61,7 +61,7 @@ jobs:
         password: "${{ secrets.DOCKER_PASSWORD }}"
         repository: "${{ matrix.image }}"
         registry: 'docker-registry.siecobywatelska.pl'
-        cache_froms: "quay.io/watchdogpolska/${{ matrix.image }}:latest,docker-registry.siecobywatelska.pl/watchdogpolska/${{ matrix.image }}:latest"
+        cache_froms: "quay.io/watchdogpolska/${{ matrix.image }}:latest,docker-registry.siecobywatelska.pl/${{ matrix.image }}:latest"
         path: '${{ matrix.image }}'
         tag_with_ref: true
         add_git_labels: true
