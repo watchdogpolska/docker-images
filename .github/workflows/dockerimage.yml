@@ -51,7 +51,6 @@ jobs:
         registry: 'quay.io'
         path: '${{ matrix.image }}'
         tag_with_ref: true
-        add_git_labels: true
     - uses: docker/build-push-action@v1
       if: "steps.changed.outputs.changed == 'true'"
       with:
@@ -62,4 +61,3 @@ jobs:
         cache_froms: "quay.io/watchdogpolska/${{ matrix.image }}:latest"
         path: '${{ matrix.image }}'
         tag_with_ref: true
-        add_git_labels: true
