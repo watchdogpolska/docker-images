@@ -1,4 +1,4 @@
-FROM node:10@sha256:798efbc0842cf57fbdb9a56ac01a95ad5160eb9d836ce7c9b364103ae1b3a0b7
+FROM node:10@sha256:69c6890c8dc83f1cf0b1e5120a918180ed3c1e08b43c981d595377f3462ffcc8
 WORKDIR /src
 COPY ./package* ./
 RUN npm install
