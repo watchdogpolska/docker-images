@@ -1,4 +1,4 @@
-FROM ubuntu:18.04@sha256:a7fa45fb43d471f4e66c5b53b1b9b0e02f7f1d37a889a41bbe1601fac70cb54e
+FROM ubuntu:18.10@sha256:c95b7b93ccd48c3bfd97f8cac6d5ca8053ced584c9e8e6431861ca30b0d73114
 MAINTAINER Adam Dobrawy "http://github.com/ad-m/"
 RUN apt-get update \
 && apt-get install -y openssh-server curl wget git less \
