@@ -1,4 +1,4 @@
-FROM apache/tika:1.24-full@sha256:ec1d21a188501ccfc78299973b314ea8ac4111c224b958c0ef9d6e8d31b8d8d8
+FROM apache/tika:1.25-full@sha256:7a7f4a017e59af1d36c1368ed681d335f22ca909004d9cc9a6a2b21eb0fb808a
 RUN apt-get update \
 && DEBIAN_FRONTEND=noninteractive apt-get -y install tesseract-ocr-pol \
 && rm -rf /var/lib/apt/lists/*
