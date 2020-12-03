@@ -1,4 +1,4 @@
-FROM python:3.8-slim@sha256:036e81d215d304457316e228e4b294a3c6ca6a81ed8145b1319e477de35ed07f
+FROM python:3.8-slim@sha256:1da93917f765c29a35eb0212980a0e398a620ab66fd5e7fdade12d37d1d39975
 RUN pip install mycli
 ADD ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
