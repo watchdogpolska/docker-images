@@ -40,7 +40,8 @@ jobs:
       with:
         paths: ${{ matrix.image }} .github
     - name: Populate Docker cache
-      run: docker pull quay.io/watchdogpolska/${{ matrix.image }}:latest
+      run: docker pull quay.io/watchdogpolska/${{ matrix.image }}:latest || echo 'Cache empty'
+      if: "steps.changed.outputs.changed == 'true'"
     - uses: docker/build-push-action@v1
       if: "steps.changed.outputs.changed == 'true'"
       with:
