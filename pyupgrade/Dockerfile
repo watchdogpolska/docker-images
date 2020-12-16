@@ -1,4 +1,4 @@
-FROM python:3.8-slim@sha256:76ae1f8d27616e0688df6689c2fd1c9a7482eb37984dc0402f6393ac47abfcaa
+FROM python:3.8-slim@sha256:3a7b2ec271aa68b4718021b0c9137d2945d4103bbb24705eeebb6669d4b6b0d7
 RUN pip install pyupgrade
 WORKDIR /data
 COPY ./docker-entrypoint.sh /usr/bin/
