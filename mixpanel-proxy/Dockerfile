@@ -1,10 +1,10 @@
-FROM node:12-alpine@sha256:1c5f444d75cc3ed4e3dee50f07aa66eba616c45217d6c8600819e4b245b8215e
+FROM node:12-alpine@sha256:41ae2b38e38e387517c59ca50498eac0537a2ff2316552c3df3b406d31414d78
 WORKDIR /src
 COPY . .
 RUN npm ci
 CMD ["npm","run","lint"]
 
-FROM node:12-alpine@sha256:1c5f444d75cc3ed4e3dee50f07aa66eba616c45217d6c8600819e4b245b8215e
+FROM node:12-alpine@sha256:41ae2b38e38e387517c59ca50498eac0537a2ff2316552c3df3b406d31414d78
 WORKDIR /src
 COPY package* ./
 ENV NODE_ENV=production
