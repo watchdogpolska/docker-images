@@ -1,4 +1,4 @@
-FROM debian:10.5@sha256:2f53b5f0101a2f296c632c28010df43575b8ced96615b4b0b370d52a7004f473
+FROM debian:10.5@sha256:439a6bae1ef351ba9308fc9a5e69ff7754c14516f6be8ca26975fb564cb7fb76
 RUN apt-get update \
 && apt-get install -y --no-install-recommends ca-certificates rsync curl wget nano locales \
 && rm -rf /var/lib/apt/lists/*
