@@ -1,4 +1,4 @@
-FROM alpine:3.12@sha256:3c7497bf0c7af93428242d6176e8f7905f2201d8fc5861f45be7a346b5f23436
+FROM alpine:3.13@sha256:69e70a79f2d41ab5d637de98c1e0b055206ba40a8145e7bddb55ccc04e13cf8f
 MAINTAINER Adam Dobrawy "http://github.com/ad-m/"
 RUN apk add --no-cache curl
 CMD ["curl", "--version"]
