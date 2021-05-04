@@ -1,8 +1,8 @@
-FROM python:3.5@sha256:42a37d6b8c00b186bdfb2b620fa8023eb775b3eb3a768fd3c2e421964eee9665 as builder
+FROM python:3.9@sha256:0813df59b3d73a13fc581fd416d7733a2de6540d7e3f7633a1a9aabf9b201548 as builder
 RUN pip install pipenv
 COPY Pipfile* ./
 RUN pipenv lock --requirements > /requirements.txt
-FROM python:3.5@sha256:42a37d6b8c00b186bdfb2b620fa8023eb775b3eb3a768fd3c2e421964eee9665 as app
+FROM python:3.9@sha256:0813df59b3d73a13fc581fd416d7733a2de6540d7e3f7633a1a9aabf9b201548 as app
 WORKDIR /opt/src
 COPY --from=builder /requirements.txt .
 RUN pip install -r requirements.txt
