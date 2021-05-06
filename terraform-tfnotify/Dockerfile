@@ -1,4 +1,4 @@
-FROM hashicorp/terraform:0.14.7@sha256:7e8d0325e120d8adae128bca9b3364c13a8c2f5109dffe681ac932a82b585729
+FROM hashicorp/terraform:0.15.3@sha256:ac06377ccbe9b4fa4a0453631398af637a74c550a4889936df5bffd64c360f1c
 RUN wget https://github.com/mercari/tfnotify/releases/download/v0.3.0/tfnotify_v0.3.0_linux_amd64.tar.gz && \
 tar xvzf tfnotify_v0.3.0_linux_amd64.tar.gz && \
 mv tfnotify_*_linux_amd64/tfnotify /usr/local/bin/tfnotify && \
