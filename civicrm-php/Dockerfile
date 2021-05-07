@@ -1,3 +1,3 @@
-FROM chialab/php:7.2-apache@sha256:9f867f5891a0ea37a6fbdab9803e644261773fe4c5ed4b59937039a8d397ec9a
+FROM chialab/php:7.2-apache@sha256:e86c3a3c8ee5ec5690e5d6808b1e6cb894e111acc757b54aa5c9c65956cd20a4
 RUN unlink /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Poland /etc/localtime
