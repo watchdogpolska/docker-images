@@ -24,7 +24,7 @@ services:
       - psql
 
   mysql:
-    image: mysql@sha256:feada149cb8ff54eade1336da7c1d080c4a1c7ed82b5e320efb5beebed85ae8c
+    image: mysql@sha256:04ee7141256e83797ea4a84a4d31b1f1bc10111c8d1bc1879d52729ccd19e20a
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     environment:
