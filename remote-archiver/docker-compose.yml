@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
   psql:
-    image: postgres@sha256:c32f3f8364d79f71958c9ada74c43c2033d7e13d9d5fc21d3ba89322e6559c9d
+    image: postgres@sha256:61d5d8ef6cb4e2035f053f26b6b455c201a809354084cc8426b6904b8dd35602
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: pass
