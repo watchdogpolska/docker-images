@@ -13,7 +13,7 @@
     "@sentry/node": "^5.4.0",
     "koa": "^2.7.0",
     "koa-logger": "^3.2.1",
-    "superagent": "^5.1.0",
+    "superagent": "^6.0.0",
     "superagent-logger": "^1.1.0"
   },
   "devDependencies": {
