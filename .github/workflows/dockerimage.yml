@@ -41,7 +41,7 @@ jobs:
     - name: Populate Docker cache
       run: docker pull quay.io/watchdogpolska/${{ matrix.image }}:latest || echo 'Cache empty'
       if: "steps.changed.outputs.changed == 'true'"
-    - uses: docker/build-push-action@v1
+    - uses: docker/build-push-action@v2
       if: "steps.changed.outputs.changed == 'true'"
       with:
         username: "${{ secrets.QUAY_DOCKER_USERNAME }}"
@@ -51,7 +51,7 @@ jobs:
         registry: 'quay.io'
         path: '${{ matrix.image }}'
         tag_with_ref: true
-    - uses: docker/build-push-action@v1
+    - uses: docker/build-push-action@v2
       if: "steps.changed.outputs.changed == 'true'"
       with:
         username: "${{ secrets.DOCKER_USERNAME }}"
