@@ -17,5 +17,5 @@ soupsieve==2.0.1
 tinycss2==1.1.0
 urllib3==1.25.9
 webencodings==0.5.1
-feedparser==6.0.1
+feedparser==6.0.8
 tweepy==3.9.0
