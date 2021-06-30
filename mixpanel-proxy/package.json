@@ -19,6 +19,6 @@
   "devDependencies": {
     "@hyperone/eslint-config": "2.0.1",
     "eslint": "7.5.0",
-    "nodemon": "2.0.5"
+    "nodemon": "2.0.9"
   }
 }
